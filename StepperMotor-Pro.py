@@ -1,46 +1,20 @@
 from machine import Pin
-import time
+import time    
 s1=Pin(4,Pin.OUT)
 s2=Pin(14,Pin.OUT)
 s3=Pin(18,Pin.OUT)
 s4=Pin(19,Pin.OUT)
-lis=[s1,s2,s3,s4]
+lit=[[1,0,0,0],[0,1,0,0],[0,0,1,0],[1,0,0,0]]
 while True:
-    s1.value(1)
-    s2.value(0)
-    s3.value(0)
-    s4.value(0)
-    time.sleep_ms(50)
-
-    s1.value(0)
-    s2.value(1)
-    s3.value(0)
-    s4.value(0)
-    time.sleep_ms(50)
-
-    s1.value(0)
-    s2.value(0)
-    s3.value(1)
-    s4.value(0)
-    time.sleep_ms(50)
-
-    s1.value(0)
-    s2.value(0)
-    s3.value(0)
-    s4.value(1)
-    time.sleep_ms(50)
-    
-    
-    s1.value(0)
-    s2.value(0)
-    s3.value(1)
-    s4.value(0)
-    time.sleep_ms(50)
-
-    s1.value(0)
-    s2.value(1)
-    s3.value(0)
-    s4.value(0)
-    time.sleep_ms(50)
-
-    
+    for i in lit:
+        s1.value(i[0])
+        s2.value(i[1])
+        s3.value(i[2])
+        s4.value(i[3])
+        time.sleep_ms(50)
+    for i in lit:
+        s1.value(i[3])
+        s2.value(i[2])
+        s3.value(i[1])
+        s4.value(i[0])
+        time.sleep_ms(50)
